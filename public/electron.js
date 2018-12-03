@@ -24,7 +24,7 @@ function createWindow() {
   mainWindow.on("closed", () => (mainWindow = null));
   mainWindow.webContents.openDevTools();
 
-  hromeconst { default: installExtension,REACT_DEVELOPER_TOOLS} = require('electron-devtools-installer');
+  const { default: installExtension,REACT_DEVELOPER_TOOLS} = require('electron-devtools-installer');
 
   installExtension(REACT_DEVELOPER_TOOLS).then((name) => {
     console.log(`Added Extension:  ${name}`);

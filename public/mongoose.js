@@ -18,4 +18,4 @@ export default () => {
     .catch(err => {
       logger.error({err}, 'Unable to populate database');
     });
-};s
+};
