@@ -30,11 +30,7 @@ function createWindow() {
     console.log(`Added Extension:  ${name}`);
   });
 }
-const { default: installExtension,REACT_DEVELOPER_TOOLS} = require('electron-devtools-installer');
 
-installExtension(REACT_DEVELOPER_TOOLS).then((name) => {
-  console.log(`Added Extension:  ${name}`);
-});
 app.on("ready", createWindow);
 
 app.on("window-all-closed", () => {
