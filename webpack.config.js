@@ -1,21 +1,26 @@
-const webpack = require("webpack");
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { spawn } = require("child_process");
-const SRC_DIR = path.resolve(__dirname, "src");
-const OUTPUT_DIR = path.resolve(__dirname, "dist");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const defaultInclude = [SRC_DIR];
+const webpack = require('webpack')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { spawn } = require('child_process')
+const SRC_DIR = path.resolve(__dirname, 'src')
+const OUTPUT_DIR = path.resolve(__dirname, 'dist')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const defaultInclude = [SRC_DIR]
 
 module.exports = {
-  entry: SRC_DIR + "/index.js",
+  entry: SRC_DIR + '/index.js',
   output: {
     path: OUTPUT_DIR,
-    publicPath: "/dist/",
-    filename: "bundle.js"
+    publicPath: '/dist/',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
+      // {
+      //   test: /\.js?$/,
+      //   use: ['eslint-loader'],
+      //   exclude: '/node_modules/'
+      // },
       {
         test: /\.js?$/,
         use: ['babel-loader'],
@@ -23,31 +28,31 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(jpe?g|png|gif)$/,
-        use: [{ loader: "file-loader?name=img/[name]__[hash:base64:5].[ext]" }],
+        use: [{ loader: 'file-loader?name=img/[name]__[hash:base64:5].[ext]' }],
         include: defaultInclude
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        use: [{ loader: "file-loader?name=font/[name]__[hash:base64:5].[ext]" }],
+        use: [{ loader: 'file-loader?name=font/[name]__[hash:base64:5].[ext]' }],
         include: defaultInclude
       }
     ]
   },
-  target: "electron-renderer",
+  target: 'electron-renderer',
   plugins: [
     new HtmlWebpackPlugin({
-      template: "public/index.html",
-      inject: "body"
+      template: 'public/index.html',
+      inject: 'body'
     }),
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify("development")
+      'process.env.NODE_ENV': JSON.stringify('development')
     })
   ],
-  devtool: "cheap-source-map",
+  devtool: 'cheap-source-map',
   devServer: {
     contentBase: OUTPUT_DIR,
     stats: {
@@ -55,23 +60,20 @@ module.exports = {
       chunks: false,
       children: false
     },
-    before() {
-
+    before () {
       spawn(
-        "electron",
+        'electron',
 
-        ["./public/electron.js"],
+        ['./public/electron.js'],
 
-        { shell: true, env: process.env, stdio: "inherit" }
+        { shell: true, env: process.env, stdio: 'inherit' }
       )
 
-        .on("close", code => process.exit(0))
+        .on('close', code => process.exit(0))
 
-        .on("error", spawnError => console.error(spawnError));
-
+        .on('error', spawnError => console.error(spawnError))
     }
 
   }
 
-};
-
+}
