@@ -1,8 +1,8 @@
-import logger from 'env-bunyan'
-import mongoose from 'mongoose'
-import {seed} from 'mongoose-plugin-seed'
+import logger from 'env-bunyan';
+import mongoose from 'mongoose';
+import { seed } from 'mongoose-plugin-seed';
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI);
 
 mongoose.Promise = Promise;
 
@@ -16,6 +16,6 @@ export default () => {
       logger.info('Finished populating database.');
     })
     .catch(err => {
-      logger.error({err}, 'Unable to populate database');
+      logger.error({ err }, 'Unable to populate database');
     });
 };

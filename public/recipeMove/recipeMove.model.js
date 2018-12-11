@@ -1,5 +1,4 @@
 
-
 const mongoose = require('mongoose');
 
 const RecipeMoveSchema = new mongoose.Schema({

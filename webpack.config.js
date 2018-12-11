@@ -1,11 +1,11 @@
-const webpack = require('webpack')
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { spawn } = require('child_process')
-const SRC_DIR = path.resolve(__dirname, 'src')
-const OUTPUT_DIR = path.resolve(__dirname, 'dist')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const defaultInclude = [SRC_DIR]
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { spawn } = require('child_process');
+const SRC_DIR = path.resolve(__dirname, 'src');
+const OUTPUT_DIR = path.resolve(__dirname, 'dist');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const defaultInclude = [SRC_DIR];
 
 module.exports = {
   entry: SRC_DIR + '/index.js',
@@ -71,9 +71,9 @@ module.exports = {
 
         .on('close', code => process.exit(0))
 
-        .on('error', spawnError => console.error(spawnError))
+        .on('error', spawnError => console.error(spawnError));
     }
 
   }
 
-}
+};
