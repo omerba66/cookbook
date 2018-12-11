@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { spawn } = require('child_process');
 const SRC_DIR = path.resolve(__dirname, 'src');
 const OUTPUT_DIR = path.resolve(__dirname, 'dist');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const defaultInclude = [SRC_DIR];
 
 module.exports = {
