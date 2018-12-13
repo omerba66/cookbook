@@ -16,6 +16,7 @@
     "env-bunyan": "^0.1.0",
     "global": "^4.3.2",
     "loadsh": "^0.0.3",
+    "lodash": "^4.17.11",
     "mongoose": "^5.3.11",
     "mongoose-plugin-seed": "^0.4.0",
     "passport-local-mongoose": "^5.0.1",

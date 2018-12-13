@@ -1,7 +1,9 @@
+import { Schema } from 'mongoose';
+import { createSeedModel} from "mongoose-plugin-seed";
+import { seed } from "./instruction.seed";
 
-const mongoose = require('mongoose');
 
-const RecipeMoveSchema = new mongoose.Schema({
+const instructionSchema = new Schema({
   content: {
     type: String,
     required: true
@@ -12,4 +14,4 @@ const RecipeMoveSchema = new mongoose.Schema({
   }
 });
 
-export default createSeedModel('RecipeMove', RecipeMoveSchema, seed);
+export default createSeedModel('instruction', instructionSchema, seed);

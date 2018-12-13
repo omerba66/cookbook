@@ -1,8 +1,13 @@
+import seed from './server/mongoose';
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const ipc = electron.ipcMain;
 
+// TODO:// export to module i guess
+const mongoStarted = seed();
+mongoStarted();
+//
 const path = require('path');
 const isDev = require('electron-is-dev');
 
